@@ -76,13 +76,31 @@ const officialVideo='GEKChFvndyk'; const clipSeconds=15;
     function decorateCards(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],thumb=card.querySelector('.thumb'),tone=product.category==='scent'?'tone-scent':product.category==='accessory'?'tone-tool':product.category==='interior'?'tone-inside':/BLACK/.test(product.name)?'tone-black':/(COAT|SHIELD|WIPE)/.test(product.name)?'tone-protect':'',photo=productImages[product.name];thumb.className=`thumb product-identity ${tone}`;thumb.removeAttribute('style');thumb.innerHTML=`${photo?`<img class="official-product-photo" src="${photo}" alt="GLOSSBRO ${product.name}">`:`<span class="photo-pending">GLOSSBRO<br><b>${product.name}</b><small>PHOTO BEING VERIFIED</small></span>`}<span class="effect-shot"><b>${effects[product.name]||'VISIBLE DETAILING RESULT'}</b></span><span class="play">▶</span>`})}decorateCards();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(decorateCards));
   </script>
   <script>
-    /* Reliable YouTube embed fallback for the booth screen. */
-    document.querySelector('#grid').addEventListener('click', event => {
-      const card = event.target.closest('.card');
-      if (!card) return;
-      const product = data[card.dataset.id];
-      const videoId = product.name === 'LIME BOMB' ? 'JAeAtw8Fj7U' : officialVideo;
-      setTimeout(() => { document.querySelector('#player').src = `https://www.youtube.com/embed/${videoId}?start=0&end=15&rel=0&autoplay=1`; }, 0);
+    /* GLOSSBRO official channel only: each entry is an individual 10–15 second product clip. */
+    const officialClips={
+      'PEACH CRUSH':{id:'hkmFIFq5kbA',start:0,end:15,label:'Official GLOSSBRO Short · Peach Crush'},
+      'ORANGE CRUSH RTU':{id:'psV1fR7ErLA',start:0,end:15,label:'Official GLOSSBRO Short · Orange Crush RTU'},
+      'LIME BOMB':{id:'JAeAtw8Fj7U',start:7,end:20,label:'Official GLOSSBRO · Lime Bomb'},
+      'RAIN SHIELD ULTRA':{id:'HubcjHX_gpk',start:0,end:15,label:'Official GLOSSBRO Short · Rain Shield'},
+      'CERA COAT':{id:'EffRrf1l3lI',start:0,end:15,label:'Official GLOSSBRO Short · Cera Coat'},
+      'FUNKY BLACK':{id:'9jijeU7rrWA',start:0,end:15,label:'Official GLOSSBRO Short · Funky Black'},
+      'GLOSS BLACK':{id:'5pB2Seb_61w',start:0,end:15,label:'Official GLOSSBRO Short · Gloss Black'},
+      'MAT CLEAN':{id:'DEpkp_GdI94',start:0,end:15,label:'Official GLOSSBRO Short · Mat Clean'},
+      'LEATHER PROTECTOR':{id:'-KkU36jTLKE',start:0,end:15,label:'Official GLOSSBRO · Leather Protector'},
+      'QUICK REFRESH':{id:'-1cfoZ-0wRY',start:0,end:15,label:'Official GLOSSBRO Short · Quick Refresh'},
+      'SUPREME DUAL SIDE DRYING TOWEL':{id:'lowJez-yYTA',start:0,end:15,label:'Official GLOSSBRO Short · Dual-side Drying Towel'},
+      'WAFFLE DRYING TOWEL':{id:'d5-3vcjYUYU',start:0,end:15,label:'Official GLOSSBRO Short · Towel line'},
+      'MICROFIBER WASH MITT':{id:'C76JyMUHyNA',start:0,end:15,label:'Official GLOSSBRO Short · Wash Mitt'}
+    };
+    document.querySelector('#grid').addEventListener('click',event=>{
+      const card=event.target.closest('.card');if(!card)return;
+      const product=data[card.dataset.id],clip=officialClips[product.name];
+      setTimeout(()=>{
+        const player=document.querySelector('#player');
+        if(!clip){player.src='';document.querySelector('#note').textContent=`${product.name}: official GLOSSBRO product short is being selected. A different product video will never be substituted.`;return}
+        player.src=`https://www.youtube.com/embed/${clip.id}?start=${clip.start}&end=${clip.end}&rel=0&autoplay=1&playsinline=1`;
+        document.querySelector('#note').textContent=`${clip.label} · ${clip.end-clip.start} seconds · ${product.note}`;
+      },0);
     });
   </script>
   <style>
