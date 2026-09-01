@@ -50,7 +50,19 @@ const officialVideo='GEKChFvndyk'; const clipSeconds=15;
   </style>
   <script>
     const effects={"APPLE CRUSH":"ROAD FILM LIFTED","PEACH CRUSH":"HEAVY DIRT RELEASED","ORANGE CRUSH RTU":"GENTLE CLEAN SURFACE","LIME BOMB":"WATER-SPOT CONTROL","BLOODIRON":"IRON FALLOUT DISSOLVED","TAR OFF":"TAR SPOTS RELEASED","PURE GLASS":"CRYSTAL-CLEAR GLASS","RAIN SHIELD ULTRA":"RAIN BEADS & ROLLS","SPEED WIPE":"INSTANT GLOSS REVIVAL","DURA COAT PLUS":"DEEPER COLOUR & GLOSS","CERA COAT":"CERAMIC WATER BEADING","CREAM COAT":"WARM WET-LOOK GLOW","FUNKY BLACK":"RICHER BLACK TRIM","DEEP BLACK":"DEEP BLACK FINISH","GLOSS BLACK":"GLOSSY PROTECTED TRIM","CABIN CLEAN":"CLEAN, MATTE CABIN","INNER SHINE":"REVIVED INTERIOR TRIM","MAT CLEAN":"LIFTED MAT SOIL","LEATHER CLEAN":"CLEAN NATURAL LEATHER","LEATHER PROTECTOR":"PROTECTED SOFT LEATHER","QUICK REFRESH":"FRESH CABIN AIR","SUPREME DUAL SIDE DRYING TOWEL":"STREAK-FREE DRYING","WAFFLE DRYING TOWEL":"WATER ABSORBED","MICROFIBER WASH MITT":"SAFE CONTACT WASH","DETAILING BRUSH SET":"DETAILS CLEANED","FOAM APPLICATOR PAD":"EVEN PRODUCT LAYER","AIRSCENT CITRUS OCEAN":"BRIGHT CITRUS CABIN","AIRSCENT IRIS MUSK":"CLEAN MUSK ATMOSPHERE","AIRSCENT PURE WHITE":"REFINED DAILY SCENT","AIRSCENT AUTO":"COMPACT FRESHNESS"};
-    function decorateCards(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],thumb=card.querySelector('.thumb'),tone=product.category==='scent'?'tone-scent':product.category==='accessory'?'tone-tool':product.category==='interior'?'tone-inside':/BLACK/.test(product.name)?'tone-black':/(COAT|SHIELD|WIPE)/.test(product.name)?'tone-protect':'';thumb.className=`thumb product-identity ${tone}`;thumb.removeAttribute('style');thumb.innerHTML=`<span class="product-pack"><i>GLOSSBRO</i><b>${product.name}</b><small>${product.sub}</small></span><span class="effect-shot"><b>${effects[product.name]||'VISIBLE DETAILING RESULT'}</b></span><span class="play">▶</span>`})}decorateCards();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(decorateCards));
+    const productImages={'APPLE CRUSH':'https://shop.r10s.jp/splashjapan/cabinet/05722201/glossbro/imgrc0090813633.jpg','PEACH CRUSH':'https://saealnam.com/web/product/big/202408/e954979a150413751c2520a82e22185a.jpg','LIME BOMB':'https://m.glossbro.com/web/product/big/202407/f763fa35bfd4c76c956b4e3807446aa0.jpg'};
+    function decorateCards(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],thumb=card.querySelector('.thumb'),tone=product.category==='scent'?'tone-scent':product.category==='accessory'?'tone-tool':product.category==='interior'?'tone-inside':/BLACK/.test(product.name)?'tone-black':/(COAT|SHIELD|WIPE)/.test(product.name)?'tone-protect':'',photo=productImages[product.name];thumb.className=`thumb product-identity ${tone}`;thumb.removeAttribute('style');thumb.innerHTML=`${photo?`<img class="official-product-photo" src="${photo}" alt="GLOSSBRO ${product.name}">`:`<span class="product-pack"><i>GLOSSBRO</i><b>${product.name}</b><small>${product.sub}</small></span>`}<span class="effect-shot"><b>${effects[product.name]||'VISIBLE DETAILING RESULT'}</b></span><span class="play">▶</span>`})}decorateCards();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(decorateCards));
   </script>
+  <script>
+    /* Reliable YouTube embed fallback for the booth screen. */
+    document.querySelector('#grid').addEventListener('click', event => {
+      const card = event.target.closest('.card');
+      if (!card) return;
+      const product = data[card.dataset.id];
+      const videoId = product.name === 'LIME BOMB' ? 'JAeAtw8Fj7U' : officialVideo;
+      setTimeout(() => { document.querySelector('#player').src = `https://www.youtube.com/embed/${videoId}?start=0&end=15&rel=0&autoplay=1`; }, 0);
+    });
+  </script>
+  <style>.official-product-photo{position:relative;z-index:1;width:43%;height:132px;object-fit:contain;object-position:center;background:#fff;border-radius:8px;box-shadow:9px 8px 17px #000a}</style>
 </body>
 </html>
