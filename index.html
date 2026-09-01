@@ -64,7 +64,7 @@ const officialVideo='GEKChFvndyk'; const clipSeconds=15;
       'DURA COAT PLUS':'https://static.wixstatic.com/media/5ef6ba_a819e9723f5a4e7bb295f81b3bb5a8da~mv2.png',
       'CERA COAT':'https://static.wixstatic.com/media/5ef6ba_610a15ca40cf41e6b7a8a3dc17231f92~mv2.png',
       'CREAM COAT':'https://static.wixstatic.com/media/5ef6ba_1f66970a36264aa4bd0033a82386e4c8~mv2.png',
-      'GLOSS BLACK':'https://static.wixstatic.com/media/5ef6ba_c709f610c2c94a1d9b6619cb49cbd894~mv2.png',
+      'GLOSS BLACK':'https://m.glossbro.com/web/product/big/202404/14af4300ff2748545a6b0d97d79c05c5.png',
       'DEEP BLACK':'https://static.wixstatic.com/media/5ef6ba_8eb974224c94437db4c8538df1a86320~mv2.png',
       'CABIN CLEAN':'https://static.wixstatic.com/media/39c73c_c363ec04d71548a49492a5ad16f558d7~mv2.png',
       'INNER SHINE':'https://static.wixstatic.com/media/39c73c_10659afde76243f985f32590157a3b1d~mv2.png',
@@ -102,6 +102,8 @@ const officialVideo='GEKChFvndyk'; const clipSeconds=15;
         document.querySelector('#note').textContent=`${clip.label} · ${clip.end-clip.start} seconds · ${product.note}`;
       },0);
     });
+    function applyOfficialVideoStills(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],clip=officialClips[product.name],effect=card.querySelector('.effect-shot');if(!clip||!effect)return;effect.classList.add('official-video-still');effect.style.backgroundImage=`linear-gradient(0deg,#071019c9,transparent 72%),url(https://i.ytimg.com/vi/${clip.id}/hqdefault.jpg)`;effect.style.backgroundSize='cover';effect.style.backgroundPosition='center';effect.querySelector('b').textContent='OFFICIAL USE CLIP';})}
+    applyOfficialVideoStills();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(applyOfficialVideoStills));
   </script>
   <style>
     .official-product-photo{position:relative;z-index:1;width:43%;height:132px;object-fit:contain;object-position:center;background:#fff;border-radius:8px;box-shadow:9px 8px 17px #000a}
