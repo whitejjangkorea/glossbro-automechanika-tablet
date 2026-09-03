@@ -61,9 +61,16 @@
     };
     function decorateCards(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],thumb=card.querySelector('.thumb'),photo=productImages[product.name];thumb.className='thumb product-identity';thumb.removeAttribute('style');thumb.innerHTML=photo?`<img class="official-product-photo" src="${photo}" alt="GLOSSBRO ${product.name}">`:`<span class="photo-pending">GLOSSBRO<br><b>${product.name}</b><small>PHOTO BEING VERIFIED</small></span>`})}decorateCards();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(decorateCards));
   </script>
+  <script>
+    /* Availability is checked against the GLOSSBRO official channel. No video is embedded here. */
+    const channelVideoProducts=new Set(['PEACH CRUSH','ORANGE CRUSH RTU','LIME BOMB','RAIN SHIELD ULTRA','CERA COAT','FUNKY BLACK','GLOSS BLACK','MAT CLEAN','LEATHER PROTECTOR','QUICK REFRESH','SUPREME DUAL SIDE DRYING TOWEL','WAFFLE DRYING TOWEL','MICROFIBER WASH MITT']);
+    function markChannelVideoAvailability(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],available=channelVideoProducts.has(product.name),thumb=card.querySelector('.thumb');thumb.querySelector('.video-status')?.remove();thumb.insertAdjacentHTML('beforeend',`<span class="video-status ${available?'available':'unavailable'}">${available?'VIDEO AVAILABLE':'NO VIDEO FOUND'}</span>`);});}
+    markChannelVideoAvailability();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(markChannelVideoAvailability));
+  </script>
   <style>
     .official-product-photo{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center;background:#f7f8f9}
     .photo-pending{position:relative;z-index:1;width:100%;height:100%;padding:20px 10px;color:#59616c;font-size:8px;letter-spacing:.12em;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:8px}.photo-pending b{font-size:10px;line-height:1.1}.photo-pending small{font-size:6px;color:#7c8793}
+    .video-status{position:absolute;z-index:3;top:9px;right:9px;padding:5px 7px;border-radius:999px;font-size:8px;line-height:1;font-weight:900;letter-spacing:.08em}.video-status.available{background:#d3ff32;color:#101300}.video-status.unavailable{background:#e6e9ed;color:#59616c}
     .video iframe{display:none}.channel-source{width:100%;height:100%;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(135deg,#172331,#090b10 72%);color:#b7c0ca;text-decoration:none;font-size:12px;letter-spacing:.13em;font-weight:800}.channel-source strong{display:block;margin-top:8px;color:#d3ff32;font-size:clamp(17px,2.2vw,28px);letter-spacing:-.04em;line-height:1.05}
   </style>
 </body>
