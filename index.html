@@ -33,25 +33,25 @@
   <script>
     const effects={"APPLE CRUSH":"ROAD FILM LIFTED","PEACH CRUSH":"HEAVY DIRT RELEASED","ORANGE CRUSH RTU":"GENTLE CLEAN SURFACE","LIME BOMB":"WATER-SPOT CONTROL","BLOODIRON":"IRON FALLOUT DISSOLVED","TAR OFF":"TAR SPOTS RELEASED","PURE GLASS":"CRYSTAL-CLEAR GLASS","RAIN SHIELD ULTRA":"RAIN BEADS & ROLLS","SPEED WIPE":"INSTANT GLOSS REVIVAL","DURA COAT PLUS":"DEEPER COLOUR & GLOSS","CERA COAT":"CERAMIC WATER BEADING","CREAM COAT":"WARM WET-LOOK GLOW","FUNKY BLACK":"RICHER BLACK TRIM","DEEP BLACK":"DEEP BLACK FINISH","GLOSS BLACK":"GLOSSY PROTECTED TRIM","CABIN CLEAN":"CLEAN, MATTE CABIN","INNER SHINE":"REVIVED INTERIOR TRIM","LEATHER PROTECTOR":"PROTECTED SOFT LEATHER","QUICK REFRESH":"FRESH CABIN AIR","SUPREME DUAL SIDE DRYING TOWEL":"STREAK-FREE DRYING","WAFFLE DRYING TOWEL":"WATER ABSORBED","MICROFIBER WASH MITT":"SAFE CONTACT WASH","DETAILING BRUSH SET":"DETAILS CLEANED","FOAM APPLICATOR PAD":"EVEN PRODUCT LAYER","AIRSCENT CITRUS OCEAN":"BRIGHT CITRUS CABIN","AIRSCENT IRIS MUSK":"CLEAN MUSK ATMOSPHERE","AIRSCENT PURE WHITE":"REFINED DAILY SCENT","AIRSCENT AUTO":"COMPACT FRESHNESS"};
     const productImages={
-      'APPLE CRUSH':'https://shop.r10s.jp/splashjapan/cabinet/05722201/glossbro/imgrc0090813633.jpg',
-      'PEACH CRUSH':'https://saealnam.com/web/product/big/202408/e954979a150413751c2520a82e22185a.jpg',
-      'ORANGE CRUSH RTU':'https://static.wixstatic.com/media/5ef6ba_da14599589484aff9f59b96eca43584d~mv2.png',
-      'LIME BOMB':'https://m.glossbro.com/web/product/big/202407/f763fa35bfd4c76c956b4e3807446aa0.jpg',
-      'BLOODIRON':'https://autogrm.com/web/product/big/202403/0b8b4e531c4d988f623e40425f71ae03.jpg',
-      'TAR OFF':'https://static.wixstatic.com/media/5ef6ba_0663569f8a6248218860f6596addbe03~mv2.png',
-      'PURE GLASS':'https://static.wixstatic.com/media/39c73c_1884d11304fb43988ee4cb08e25b493f~mv2.png',
-      'RAIN SHIELD ULTRA':'https://static.wixstatic.com/media/5ef6ba_f5666945724b4f36807c7a88c8a86cef~mv2.png',
-      'SPEED WIPE':'https://images.cdn-files-a.com/uploads/854141/800_5f485c0b80ea0.jpg',
-      'DURA COAT PLUS':'https://static.wixstatic.com/media/5ef6ba_a819e9723f5a4e7bb295f81b3bb5a8da~mv2.png',
-      'CERA COAT':'https://static.wixstatic.com/media/5ef6ba_610a15ca40cf41e6b7a8a3dc17231f92~mv2.png',
-      'CREAM COAT':'https://static.wixstatic.com/media/5ef6ba_1f66970a36264aa4bd0033a82386e4c8~mv2.png',
-      'GLOSS BLACK':'https://m.glossbro.com/web/product/big/202404/14af4300ff2748545a6b0d97d79c05c5.png',
-      'FUNKY BLACK':'https://static.wixstatic.com/media/39c73c_eb83e6c018b44903adf9cbe5ed430dae~mv2.png',
-      'DEEP BLACK':'https://static.wixstatic.com/media/39c73c_a53682759a7443a78c98ba5000b69a60~mv2.png',
-      'CABIN CLEAN':'https://static.wixstatic.com/media/39c73c_c363ec04d71548a49492a5ad16f558d7~mv2.png',
-      'INNER SHINE':'https://static.wixstatic.com/media/39c73c_10659afde76243f985f32590157a3b1d~mv2.png',
-      'LEATHER PROTECTOR':'https://en.glossbro.com/web/product/medium/202411/0b921719a7d7fd359ca0adaf70cf4492.jpg',
-      'QUICK REFRESH':'https://en.glossbro.com/web/product/medium/202412/0e4532e38f509994d9b94e9da02efecb.jpg'
+      'APPLE CRUSH':'https://m.glossbro.com/web/product/medium/202510/2f86ab4455c572b6253d911eebb1312d.jpg',
+      'PEACH CRUSH':'https://m.glossbro.com/web/product/medium/202408/acd6da1f8e841ab9ff493dd6ae6958f2.jpg',
+      'ORANGE CRUSH RTU':'https://m.glossbro.com/web/product/medium/202509/3982a064570e1c9c7aa8ff2455886853.jpg',
+      'LIME BOMB':'https://m.glossbro.com/web/product/medium/202407/33b0b2bd667fb44668355d32bc9f926d.jpg',
+      'BLOODIRON':'https://m.glossbro.com/web/product/medium/202405/e80ba45607043821e115919324c73262.jpg',
+      'TAR OFF':'https://m.glossbro.com/web/product/medium/202510/b6b14b6360bdd58dbeea6342ad516a68.jpg',
+      'PURE GLASS':'https://m.glossbro.com/web/product/medium/202405/919f4b5647bab4434dd77e1517ff6064.jpg',
+      'RAIN SHIELD ULTRA':'https://m.glossbro.com/web/product/medium/202509/01ee6af2b64b2c783eb62a5475c8535c.jpg',
+      'SPEED WIPE':'https://m.glossbro.com/web/product/medium/202405/2a1328d78d9e3ead91e4dc06b4782d16.jpg',
+      'DURA COAT PLUS':'https://m.glossbro.com/web/product/medium/202407/14311a90a6599809ad311dd8af3f14f9.jpg',
+      'CERA COAT':'https://m.glossbro.com/web/product/medium/202505/2fc21a5469bdc412d32709be9fab63ae.jpg',
+      'CREAM COAT':'https://m.glossbro.com/web/product/medium/202512/b03b417a2cec4fc758d94b748b720ba3.jpg',
+      'GLOSS BLACK':'https://m.glossbro.com/web/product/medium/202404/dda2d9faa61756155e687f3d29fb3642.png',
+      'FUNKY BLACK':'https://m.glossbro.com/web/product/medium/202403/e98d3f447ba3e4063baf97f66b7bc045.jpg',
+      'DEEP BLACK':'https://m.glossbro.com/web/product/medium/202404/a0d10d6993f3a69588a6cd9aed57ba62.jpg',
+      'CABIN CLEAN':'https://m.glossbro.com/web/product/medium/202407/fd0713605f8a0a293f093878d0503643.jpg',
+      'INNER SHINE':'https://m.glossbro.com/web/product/medium/202507/0b37c0bc4ddd1bc1fa847745b3f0fe3a.jpg',
+      'LEATHER PROTECTOR':'https://m.glossbro.com/web/product/medium/202412/28fbf7486060d41f7e880289d88d0533.jpg',
+      'QUICK REFRESH':'https://m.glossbro.com/web/product/medium/202503/c45460adb4999f68b9f20dedc9328275.jpg'
     };
     function decorateCards(){document.querySelectorAll('.card').forEach(card=>{const product=data[card.dataset.id],thumb=card.querySelector('.thumb'),photo=productImages[product.name];thumb.className='thumb product-identity';thumb.removeAttribute('style');thumb.innerHTML=photo?`<img class="official-product-photo" src="${photo}" alt="GLOSSBRO ${product.name}">`:`<span class="photo-pending">GLOSSBRO<br><b>${product.name}</b><small>PHOTO BEING VERIFIED</small></span>`})}decorateCards();document.querySelector('.tabs').addEventListener('click',()=>requestAnimationFrame(decorateCards));
   </script>
